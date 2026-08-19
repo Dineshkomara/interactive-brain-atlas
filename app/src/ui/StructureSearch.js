@@ -1,38 +1,17 @@
-import regions from "../data/regions.json";
-
-const GROUP_ORDER = [
-  "whole_brain",
-  "cerebrum",
-  "diencephalon",
-  "limbic_system",
-  "basal_ganglia",
-  "brainstem",
-  "cerebellum",
-  "ventricular_system",
-];
-
-const GROUP_LABELS = {
-  whole_brain: "Whole Brain",
-  cerebrum: "Cerebrum & Lobes",
-  diencephalon: "Diencephalon",
-  limbic_system: "Limbic System",
-  basal_ganglia: "Basal Ganglia",
-  brainstem: "Brainstem",
-  cerebellum: "Cerebellum",
-  ventricular_system: "Ventricular System",
-};
-
-const ENTRIES = Object.entries(regions)
-  .map(([id, data]) => ({ id, name: data.name, system: data.system }))
-  .sort((a, b) => a.name.localeCompare(b.name));
-
 /**
  * "Choose a Structure" combobox: type to filter, or browse grouped by
  * system. Selecting an entry drives the same selection pipeline as clicking
- * the model directly (Section 17 Search System).
+ * the model directly (Section 17 Search System). Region data and grouping
+ * (GROUP_ORDER/GROUP_LABELS) are injected so this works for any body system.
  */
 export class StructureSearch {
-  constructor(container, { onSelect }) {
+  constructor(container, regions, groupOrder, groupLabels, { onSelect }) {
+    this.regions = regions;
+    this.groupOrder = groupOrder;
+    this.groupLabels = groupLabels;
+    this.entries = Object.entries(regions)
+      .map(([id, data]) => ({ id, name: data.name, system: data.system }))
+      .sort((a, b) => a.name.localeCompare(b.name));
     this.onSelect = onSelect;
     this.isOpen = false;
 
@@ -70,7 +49,7 @@ export class StructureSearch {
 
   _render(query) {
     const q = query.trim().toLowerCase();
-    const filtered = q ? ENTRIES.filter((e) => e.name.toLowerCase().includes(q)) : ENTRIES;
+    const filtered = q ? this.entries.filter((e) => e.name.toLowerCase().includes(q)) : this.entries;
 
     if (filtered.length === 0) {
       this.results.innerHTML = `<div class="structure-search-empty">No matches</div>`;
@@ -83,21 +62,21 @@ export class StructureSearch {
       bySystem.get(entry.system).push(entry);
     }
 
-    const groups = GROUP_ORDER.filter((sys) => bySystem.has(sys));
+    const groups = this.groupOrder.filter((sys) => bySystem.has(sys));
     this.results.innerHTML = groups
       .map((sys) => {
         const items = bySystem
           .get(sys)
           .map((e) => `<button class="structure-result" data-region-id="${e.id}">${e.name}</button>`)
           .join("");
-        return `<div class="structure-group"><div class="structure-group-label">${GROUP_LABELS[sys] || sys}</div>${items}</div>`;
+        return `<div class="structure-group"><div class="structure-group-label">${this.groupLabels[sys] || sys}</div>${items}</div>`;
       })
       .join("");
 
     this.results.querySelectorAll(".structure-result").forEach((btn) => {
       btn.addEventListener("click", () => {
         const regionId = btn.dataset.regionId;
-        this.input.value = regions[regionId].name;
+        this.input.value = this.regions[regionId].name;
         this._close();
         this.onSelect(regionId);
       });
@@ -105,7 +84,7 @@ export class StructureSearch {
   }
 
   setValue(regionId) {
-    this.input.value = regions[regionId]?.name || "";
+    this.input.value = this.regions[regionId]?.name || "";
   }
 
   clear() {

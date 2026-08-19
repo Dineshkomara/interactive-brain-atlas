@@ -1,23 +1,8 @@
 import * as THREE from "three";
 import { resolveRegionId } from "./BrainLoader.js";
-import { colorForRegion } from "./RegionColors.js";
 
 const FADED_OPACITY = 0.05;
 const FADED_COLOR_SCALE = 0.5;
-
-/** Outer/surface regions — faded during x-ray mode so internal structures
- * (thalamus, hippocampus, ventricles, basal ganglia...) become clickable
- * without singling out any one of them. */
-const SURFACE_REGIONS = new Set([
-  "brain",
-  "cerebrum",
-  "frontal_lobe",
-  "parietal_lobe",
-  "temporal_lobe",
-  "occipital_lobe",
-  "cerebellum",
-  "brainstem",
-]);
 
 /**
  * Isolate-style selection feedback: the selected region's meshes render at
@@ -34,24 +19,27 @@ const SURFACE_REGIONS = new Set([
  * cortex geometry both blend — forcing faded meshes to single-sided
  * (front-face only) removes that doubling and, combined with the very low
  * opacity, keeps the residual sort-order noise close to imperceptible.
- * Also applies the atlas-style per-region color coding (RegionColors).
+ * Also applies the atlas-style per-region color coding via the injected
+ * RegionColorScheme (see that file — different systems pass different data).
  *
  * xray(true) is a second, independent mode layered on top of selection:
- * it fades every surface/cortex region uniformly (not the specific answer)
- * so internal structures become visible — used for quiz "identify"
- * questions that target something internal, without revealing which one
- * is correct. Fading alone isn't enough, though: Three.js raycasting
- * ignores material opacity entirely, so a click would still hit the
- * now-invisible cortex first, before ever reaching the internal structure
- * behind it. xray() also disables raycasting on faded surface meshes
- * (mesh.raycast = no-op) so clicks pass straight through to what's
- * actually visible.
+ * it fades every surface region uniformly (not the specific answer) so
+ * internal structures become visible — used for quiz "identify" questions
+ * that target something internal, without revealing which one is correct.
+ * Which regions count as "surface" is system-specific (surfaceRegionIds,
+ * e.g. the cortex/cerebellum/brainstem for the nervous system). Fading
+ * alone isn't enough, though: Three.js raycasting ignores material opacity
+ * entirely, so a click would still hit the now-invisible surface first,
+ * before ever reaching the internal structure behind it. xray() also
+ * disables raycasting on faded surface meshes (mesh.raycast = no-op) so
+ * clicks pass straight through to what's actually visible.
  */
 export class RegionHighlighter {
-  constructor(root) {
+  constructor(root, colorScheme, surfaceRegionIds = []) {
     this.meshes = [];
     this.selectedRegionId = null;
     this.xrayActive = false;
+    this.surfaceRegions = new Set(surfaceRegionIds);
 
     root.traverse((obj) => {
       if (obj.isMesh) {
@@ -60,7 +48,7 @@ export class RegionHighlighter {
           : obj.material.clone();
         obj.userData.resolvedRegionId = resolveRegionId(obj);
 
-        const color = colorForRegion(obj.userData.resolvedRegionId);
+        const color = colorScheme.colorForRegion(obj.userData.resolvedRegionId);
         const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
         for (const material of materials) {
           if (color !== null && material.color) material.color.setHex(color);
@@ -91,7 +79,7 @@ export class RegionHighlighter {
     this.xrayActive = active;
     this._apply();
     for (const mesh of this.meshes) {
-      if (!SURFACE_REGIONS.has(mesh.userData.resolvedRegionId)) continue;
+      if (!this.surfaceRegions.has(mesh.userData.resolvedRegionId)) continue;
       if (active) {
         mesh.raycast = () => {};
       } else {
@@ -103,7 +91,7 @@ export class RegionHighlighter {
   _apply() {
     for (const mesh of this.meshes) {
       const faded = this.xrayActive
-        ? SURFACE_REGIONS.has(mesh.userData.resolvedRegionId)
+        ? this.surfaceRegions.has(mesh.userData.resolvedRegionId)
         : this.selectedRegionId !== null && mesh.userData.resolvedRegionId !== this.selectedRegionId;
       this._setFaded(mesh, faded);
     }

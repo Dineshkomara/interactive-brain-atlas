@@ -1,6 +1,3 @@
-import quizzes from "../data/quizzes.json";
-import regions from "../data/regions.json";
-
 // Regions in these categories are buried inside the cortex and unclickable
 // under a normal opaque view — see onXrayChange below.
 const INTERNAL_CATEGORIES = new Set(["subcortical", "ventricle", "white_matter"]);
@@ -22,8 +19,9 @@ const INTERNAL_CATEGORIES = new Set(["subcortical", "ventricle", "white_matter"]
  * fade itself giving away which one is right.
  */
 export class QuizPanel {
-  constructor(container, { onOpenQuestion, onToggle, onXrayChange }) {
+  constructor(container, quizzes, regions, { onOpenQuestion, onToggle, onXrayChange }) {
     this.quiz = quizzes[0];
+    this.regions = regions;
     this.onOpenQuestion = onOpenQuestion;
     this.onToggle = onToggle || (() => {});
     this.onXrayChange = onXrayChange || (() => {});
@@ -153,13 +151,13 @@ export class QuizPanel {
   _renderQuestionBody(q, answer) {
     if (q.type === "identify") {
       if (!answer) {
-        const hint = INTERNAL_CATEGORIES.has(regions[q.answer]?.category)
+        const hint = INTERNAL_CATEGORIES.has(this.regions[q.answer]?.category)
           ? "This structure is buried inside the brain, so the surface has been faded to let you see and click among the internal structures. Click the correct one."
           : "Click the correct structure on the 3D brain to answer.";
         return `<p class="q-hint">${hint}</p>`;
       }
-      const correctName = regions[q.answer]?.name || q.answer;
-      const clickedName = regions[answer.clickedRegionId]?.name || answer.clickedRegionId || "nothing tagged";
+      const correctName = this.regions[q.answer]?.name || q.answer;
+      const clickedName = this.regions[answer.clickedRegionId]?.name || answer.clickedRegionId || "nothing tagged";
       return `
         <div class="feedback ${answer.status === "correct" ? "ok" : "no"}">
           ${answer.status === "correct" ? "&#10003; Correct." : `&#10007; You clicked <b>${clickedName}</b>.`}
@@ -200,7 +198,7 @@ export class QuizPanel {
     if (this.openQuestionId === null) return false;
     const q = this.quiz.questions.find((qq) => qq.id === this.openQuestionId);
     if (!q || q.type !== "identify" || this.answers.has(q.id)) return false;
-    return INTERNAL_CATEGORIES.has(regions[q.answer]?.category);
+    return INTERNAL_CATEGORIES.has(this.regions[q.answer]?.category);
   }
 
   _notifyXray() {

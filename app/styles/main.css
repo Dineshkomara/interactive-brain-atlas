@@ -47,6 +47,26 @@ body {
   flex: 0 0 auto;
 }
 
+#system-select {
+  flex: 0 0 auto;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+#system-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#system-select option:disabled {
+  color: var(--text-muted);
+}
+
 #structure-search-container {
   flex: 1 1 auto;
   display: flex;

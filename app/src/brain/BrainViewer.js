@@ -84,14 +84,32 @@ export class BrainViewer {
     this.controls.update();
   }
 
-  /** Removes the placeholder (if present) and frames the camera on `root`. */
-  setBrainRoot(root) {
+  /** Removes and disposes whatever model is currently mounted (placeholder or
+   * a previously loaded system), so switching body systems doesn't leak the
+   * old system's geometries/materials/textures. */
+  clearBrainRoot() {
     if (this.placeholder) {
       this.scene.remove(this.placeholder);
       this.placeholder.geometry.dispose();
       this.placeholder.material.dispose();
       this.placeholder = null;
     }
+    if (this.brainRoot) {
+      this.scene.remove(this.brainRoot);
+      this.brainRoot.traverse((obj) => {
+        if (!obj.isMesh) return;
+        obj.geometry.dispose();
+        const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
+        for (const material of materials) material.dispose();
+      });
+      this.brainRoot = null;
+    }
+  }
+
+  /** Removes the placeholder (if present) and frames the camera on `root`. */
+  setBrainRoot(root) {
+    this.clearBrainRoot();
+    this.brainRoot = root;
     this.scene.add(root);
 
     const box = new THREE.Box3().setFromObject(root);

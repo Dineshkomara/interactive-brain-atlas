@@ -1,17 +1,18 @@
-import regions from "../data/regions.json";
-
 /**
- * Renders the region info panel from data/regions.json. Knows nothing about
- * Three.js — only reads region data and reports clicks back via callbacks.
+ * Renders the region info panel from the injected region content map. Knows
+ * nothing about Three.js — only reads region data and reports clicks back
+ * via callbacks.
  */
 export class RegionPanel {
-  constructor(container, { onSelectRelated, onClose }) {
+  constructor(container, regions, { onSelectRelated, onClose }) {
     this.container = container;
+    this.regions = regions;
     this.onSelectRelated = onSelectRelated;
     this.onClose = onClose;
   }
 
   show(regionId) {
+    const regions = this.regions;
     const data = regions[regionId];
     if (!data) {
       console.warn(`No content in regions.json for region_id "${regionId}"`);

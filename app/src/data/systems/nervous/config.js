@@ -1,9 +1,15 @@
 /**
- * Atlas-style color coding, one hue per Tier A region (left/right pairs
- * share a color). Replaces Z-Anatomy's flat white/grey cortex materials with
- * a readable, distinct palette — same idea as classic printed brain atlases.
+ * Nervous system UI configuration — everything about how this system's data
+ * gets displayed/grouped/colored, as opposed to the anatomical content
+ * itself (which lives in regions.json/lessons.json/quizzes.json alongside
+ * this file). See ../../../brain/RegionColorScheme.js for the generic
+ * mechanism MESH_COLORS/ACCENT_COLORS/BASE_NAMES feed into.
+ *
+ * MESH_COLORS is the muted, natural palette applied to the 3D model itself;
+ * ACCENT_COLORS is a separate, more saturated palette used only for UI
+ * chrome (labels, legend, leader lines).
  */
-export const REGION_COLORS = {
+export const MESH_COLORS = {
   brain: 0xcdb8a4,
   cerebrum: 0xd6c1ac,
   frontal_lobe: 0xcb9a7c,
@@ -25,22 +31,6 @@ export const REGION_COLORS = {
   globus_pallidus: 0xa89a80,
 };
 
-/** Strips a trailing _left/_right so both sides look up the same base color. */
-function baseId(regionId) {
-  return regionId ? regionId.replace(/_(left|right)$/, "") : null;
-}
-
-export function colorForRegion(regionId) {
-  const base = baseId(regionId);
-  return base ? (REGION_COLORS[base] ?? null) : null;
-}
-
-/**
- * Separate, more saturated palette used only for UI chrome — label chips,
- * leader lines, the legend — never for the 3D mesh itself. The model's own
- * colors are deliberately muted/natural; identification colors need to be
- * visually distinct at a glance, which muted tones aren't good at.
- */
 export const ACCENT_COLORS = {
   brain: 0x9aa4b2,
   cerebrum: 0xd9a441,
@@ -63,12 +53,6 @@ export const ACCENT_COLORS = {
   globus_pallidus: 0x7fa889,
 };
 
-export function accentColorForRegion(regionId) {
-  const base = baseId(regionId);
-  return base ? (ACCENT_COLORS[base] ?? 0x9aa4b2) : 0x9aa4b2;
-}
-
-/** Short display names for the legend — one entry per color, not per side. */
 export const BASE_NAMES = {
   brain: "Brain (overall)",
   cerebrum: "Cerebrum",
@@ -87,4 +71,42 @@ export const BASE_NAMES = {
   caudate_nucleus: "Caudate Nucleus",
   putamen: "Putamen",
   globus_pallidus: "Globus Pallidus",
+};
+
+/** Outer/surface regions — faded during quiz x-ray mode so internal
+ * structures (thalamus, hippocampus, ventricles, basal ganglia...) become
+ * clickable without singling out any one of them. */
+export const SURFACE_REGIONS = [
+  "brain",
+  "cerebrum",
+  "frontal_lobe",
+  "parietal_lobe",
+  "temporal_lobe",
+  "occipital_lobe",
+  "cerebellum",
+  "brainstem",
+];
+
+/** Grouping for the "Choose a Structure" search box, keyed by each region's
+ * `system` field in regions.json. */
+export const GROUP_ORDER = [
+  "whole_brain",
+  "cerebrum",
+  "diencephalon",
+  "limbic_system",
+  "basal_ganglia",
+  "brainstem",
+  "cerebellum",
+  "ventricular_system",
+];
+
+export const GROUP_LABELS = {
+  whole_brain: "Whole Brain",
+  cerebrum: "Cerebrum & Lobes",
+  diencephalon: "Diencephalon",
+  limbic_system: "Limbic System",
+  basal_ganglia: "Basal Ganglia",
+  brainstem: "Brainstem",
+  cerebellum: "Cerebellum",
+  ventricular_system: "Ventricular System",
 };

@@ -1,6 +1,4 @@
 import * as THREE from "three";
-import regions from "../data/regions.json";
-import { accentColorForRegion } from "../brain/RegionColors.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 const SILHOUETTE_MARGIN = 26;
@@ -35,8 +33,8 @@ function cssColor(hex) {
  * center, so without this they'd stack on top of each other even once
  * they're all outside the silhouette.
  *
- * Every label/line pair is tinted with that region's accent color (see
- * RegionColors.ACCENT_COLORS) so it's obvious which line belongs to which
+ * Every label/line pair is tinted with that region's accent color (from the
+ * injected RegionColorScheme) so it's obvious which line belongs to which
  * label even when several pass near each other.
  *
  * Hovering a label (without clicking) briefly previews that structure via
@@ -57,7 +55,7 @@ function cssColor(hex) {
  * mesh (thalamus, hippocampus, ...) this is unchanged.
  */
 export class LabelsOverlay {
-  constructor(container, regionIndex, { onSelect, onHoverStart, onHoverEnd }) {
+  constructor(container, regionIndex, regions, colorScheme, { onSelect, onHoverStart, onHoverEnd }) {
     this.container = container;
     this.onSelect = onSelect;
     this.onHoverStart = onHoverStart || (() => {});
@@ -76,7 +74,7 @@ export class LabelsOverlay {
       const data = regions[regionId];
       if (!data) continue;
 
-      const accent = cssColor(accentColorForRegion(regionId));
+      const accent = cssColor(colorScheme.accentColorForRegion(regionId));
 
       const el = document.createElement("button");
       el.type = "button";

@@ -1,5 +1,3 @@
-import lessons from "../data/lessons.json";
-
 const AUTO_ADVANCE_MS = 6500;
 
 /**
@@ -8,7 +6,7 @@ const AUTO_ADVANCE_MS = 6500;
  * clicks/search, so highlight/camera/info-panel behavior stays consistent.
  */
 export class WalkthroughPanel {
-  constructor(container, { onStepChange, onToggle }) {
+  constructor(container, lessons, { onStepChange, onToggle }) {
     this.lesson = lessons[0];
     this.onStepChange = onStepChange;
     this.onToggle = onToggle || (() => {});
