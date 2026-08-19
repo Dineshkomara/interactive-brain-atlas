@@ -1,0 +1,20 @@
+# Node / web app
+node_modules/
+app/dist/
+app/.vite/
+*.log
+.DS_Store
+
+# Blender
+*.blend1
+*.blend2
+blender/source/*.blend
+!blender/source/.gitkeep
+
+# Large downloaded source assets — not needed in version control; see
+# blender/notes/model-sourcing.md for how to re-download.
+blender/source/downloads/
+
+# Editor
+.vscode/
+.idea/

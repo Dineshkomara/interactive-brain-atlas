@@ -1,0 +1,154 @@
+[
+  {
+    "id": "quiz_brain_basics",
+    "title": "Assignment: Brain Basics",
+    "questions": [
+      {
+        "id": 1,
+        "type": "identify",
+        "prompt": "Click the Cerebellum on the 3D brain.",
+        "answer": "cerebellum",
+        "points": 1
+      },
+      {
+        "id": 2,
+        "type": "multipleChoice",
+        "prompt": "Which structure is primarily responsible for forming new long-term memories?",
+        "options": [
+          {
+            "label": "Hippocampus",
+            "correct": true
+          },
+          {
+            "label": "Cerebellum",
+            "correct": false
+          },
+          {
+            "label": "Occipital Lobe",
+            "correct": false
+          },
+          {
+            "label": "Corpus Callosum",
+            "correct": false
+          }
+        ],
+        "explanation": "The hippocampus, deep in the temporal lobe, is essential for converting short-term experiences into long-term memories.",
+        "points": 1
+      },
+      {
+        "id": 3,
+        "type": "identify",
+        "prompt": "Click the Left Hippocampus on the 3D brain.",
+        "answer": "hippocampus_left",
+        "points": 1
+      },
+      {
+        "id": 4,
+        "type": "multipleChoice",
+        "prompt": "Which lobe contains the primary visual cortex?",
+        "options": [
+          {
+            "label": "Occipital Lobe",
+            "correct": true
+          },
+          {
+            "label": "Frontal Lobe",
+            "correct": false
+          },
+          {
+            "label": "Parietal Lobe",
+            "correct": false
+          },
+          {
+            "label": "Temporal Lobe",
+            "correct": false
+          }
+        ],
+        "explanation": "The occipital lobe, at the very back of the brain, is the brain's primary visual processing center.",
+        "points": 1
+      },
+      {
+        "id": 5,
+        "type": "multipleChoice",
+        "prompt": "Damage to which structure is classically linked to major personality and impulse-control changes (as in the historical case of Phineas Gage)?",
+        "options": [
+          {
+            "label": "Frontal Lobe",
+            "correct": true
+          },
+          {
+            "label": "Cerebellum",
+            "correct": false
+          },
+          {
+            "label": "Thalamus",
+            "correct": false
+          },
+          {
+            "label": "Amygdala",
+            "correct": false
+          }
+        ],
+        "explanation": "The frontal lobe governs planning, impulse control, and personality — damage there can dramatically change behavior.",
+        "points": 1
+      },
+      {
+        "id": 6,
+        "type": "identify",
+        "prompt": "Click the Brainstem on the 3D brain.",
+        "answer": "brainstem",
+        "points": 1
+      },
+      {
+        "id": 7,
+        "type": "multipleChoice",
+        "prompt": "Which structure acts as the brain's main sensory relay station, passing nearly all sensory input to the cortex?",
+        "options": [
+          {
+            "label": "Thalamus",
+            "correct": true
+          },
+          {
+            "label": "Hypothalamus",
+            "correct": false
+          },
+          {
+            "label": "Amygdala",
+            "correct": false
+          },
+          {
+            "label": "Putamen",
+            "correct": false
+          }
+        ],
+        "explanation": "Nearly all sensory information (except smell) is relayed through the thalamus before reaching the cortex.",
+        "points": 1
+      },
+      {
+        "id": 8,
+        "type": "multipleChoice",
+        "prompt": "Which structure connects the left and right cerebral hemispheres, letting them share information?",
+        "options": [
+          {
+            "label": "Corpus Callosum",
+            "correct": true
+          },
+          {
+            "label": "Fornix",
+            "correct": false
+          },
+          {
+            "label": "Third Ventricle",
+            "correct": false
+          },
+          {
+            "label": "Cerebellum",
+            "correct": false
+          }
+        ],
+        "explanation": "The corpus callosum is the brain's largest white matter structure, bridging the two hemispheres.",
+        "points": 1
+      }
+    ]
+  }
+]

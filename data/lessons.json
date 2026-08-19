@@ -1,0 +1,99 @@
+[
+  {
+    "id": "lesson_explore_the_brain",
+    "title": "Explore the Brain",
+    "description": "A guided tour through every major structure of the human brain, from the outer cortex down to the brainstem.",
+    "steps": [
+      {
+        "regionId": "cerebrum",
+        "title": "1 · The Cerebrum",
+        "body": "Start with the biggest structure: the cerebrum. Its wrinkled surface, the cortex, is folded to pack more thinking tissue into a skull-sized space. Everything else on this tour sits inside or beneath it."
+      },
+      {
+        "regionId": "frontal_lobe",
+        "title": "2 · Frontal Lobe — planning and control",
+        "body": "The frontmost lobe. It governs voluntary movement, planning, and impulse control — the reason frontal lobe damage can change someone's personality."
+      },
+      {
+        "regionId": "parietal_lobe",
+        "title": "3 · Parietal Lobe — sensing space",
+        "body": "Just behind the frontal lobe. It processes touch and body position, and helps you understand where things are in space."
+      },
+      {
+        "regionId": "temporal_lobe",
+        "title": "4 · Temporal Lobe — hearing and memory",
+        "body": "Below the lateral fissure. It handles hearing and language comprehension, and — importantly — contains the hippocampus, which you'll meet in a few steps."
+      },
+      {
+        "regionId": "occipital_lobe",
+        "title": "5 · Occipital Lobe — vision",
+        "body": "At the very back of the brain. Nearly all visual processing starts here, in the primary visual cortex."
+      },
+      {
+        "regionId": "corpus_callosum",
+        "title": "6 · Corpus Callosum — the bridge",
+        "body": "A thick band of white matter running through the middle of the brain, connecting the left and right hemispheres so they can share information constantly."
+      },
+      {
+        "regionId": "lateral_ventricle_left",
+        "title": "7 · Lateral Ventricle — the fluid highway",
+        "body": "One of a pair of C-shaped cavities inside each cerebral hemisphere. They produce and circulate cerebrospinal fluid (CSF), the clear fluid that cushions the whole brain — it also has a matching structure on the right side."
+      },
+      {
+        "regionId": "third_ventricle",
+        "title": "8 · Third Ventricle — a narrow gap",
+        "body": "A slim, midline cavity sitting between the two halves of the thalamus. It's next in line as CSF flows from the lateral ventricles toward the brainstem."
+      },
+      {
+        "regionId": "thalamus_left",
+        "title": "9 · Thalamus — the relay station",
+        "body": "Deep in the core of the brain. Almost every sense (except smell) passes through the thalamus on its way to the cortex — it also has a matching structure on the right side."
+      },
+      {
+        "regionId": "hypothalamus",
+        "title": "10 · Hypothalamus — the regulator",
+        "body": "Just below the thalamus. Small, but it controls temperature, hunger, thirst, and hormones by directing the pituitary gland."
+      },
+      {
+        "regionId": "hippocampus_left",
+        "title": "11 · Hippocampus — making memories",
+        "body": "Curled inside the temporal lobe. This is where new long-term memories are formed — one of the first areas affected as Alzheimer's disease progresses."
+      },
+      {
+        "regionId": "amygdala_left",
+        "title": "12 · Amygdala — emotion and fear",
+        "body": "Right next to the hippocampus. It processes emotional reactions, especially fear and threat detection."
+      },
+      {
+        "regionId": "caudate_nucleus_left",
+        "title": "13 · Caudate Nucleus — shaping movement",
+        "body": "A C-shaped structure deep in the cerebrum. Along with the putamen, it forms the striatum, helping plan and smooth out voluntary movement and supporting habit learning."
+      },
+      {
+        "regionId": "putamen_left",
+        "title": "14 · Putamen — movement's control dial",
+        "body": "Sits alongside the caudate nucleus as part of the basal ganglia. Together they fine-tune how movements are initiated and carried out."
+      },
+      {
+        "regionId": "globus_pallidus_left",
+        "title": "15 · Globus Pallidus — the output gate",
+        "body": "Tucked medial to the putamen. It's the basal ganglia's main output, sending signals that either allow or suppress movement — part of the circuit disrupted in conditions like Parkinson's disease."
+      },
+      {
+        "regionId": "cerebellum",
+        "title": "16 · Cerebellum — balance and coordination",
+        "body": "Tucked underneath the back of the cerebrum. Despite its small size it holds most of the brain's neurons, fine-tuning movement, balance, and motor learning."
+      },
+      {
+        "regionId": "fourth_ventricle",
+        "title": "17 · Fourth Ventricle — the last chamber",
+        "body": "Sits between the brainstem and the cerebellum. CSF passes through here on its way down toward the spinal cord."
+      },
+      {
+        "regionId": "brainstem",
+        "title": "18 · Brainstem — keeping you alive",
+        "body": "The stalk connecting the brain to the spinal cord. It controls breathing and heart rate — which is why brainstem injuries are uniquely life-threatening."
+      }
+    ]
+  }
+]

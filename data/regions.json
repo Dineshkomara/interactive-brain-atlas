@@ -1,0 +1,562 @@
+{
+  "brain": {
+    "name": "Brain",
+    "system": "whole_brain",
+    "category": "root",
+    "side": null,
+    "location": "The entire central organ of the nervous system, enclosed within the skull.",
+    "summary": "The brain integrates sensory information, controls voluntary and involuntary actions, and is the seat of cognition, emotion, and memory.",
+    "functions": [
+      "Sensory integration",
+      "Motor control",
+      "Cognition and reasoning",
+      "Emotional regulation",
+      "Homeostatic regulation"
+    ],
+    "relatedRegions": [
+      "cerebrum",
+      "cerebellum",
+      "brainstem"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "cerebrum": {
+    "name": "Cerebrum",
+    "system": "cerebrum",
+    "category": "surface",
+    "side": null,
+    "location": "The largest part of the brain, forming its upper and outer bulk, divided into left and right hemispheres.",
+    "summary": "Responsible for higher-order functions including voluntary movement, sensory perception, language, and abstract thought. Its surface (the cerebral cortex) is highly folded to increase surface area.",
+    "functions": [
+      "Voluntary movement",
+      "Sensory perception",
+      "Language",
+      "Abstract thought and planning"
+    ],
+    "relatedRegions": [
+      "frontal_lobe",
+      "parietal_lobe",
+      "temporal_lobe",
+      "occipital_lobe",
+      "corpus_callosum"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "frontal_lobe": {
+    "name": "Frontal Lobe",
+    "system": "cerebrum",
+    "category": "lobe",
+    "side": null,
+    "location": "The most anterior lobe of the cerebrum, in front of the central sulcus.",
+    "summary": "Governs voluntary motor control, executive function, and behavior regulation. Contains the primary motor cortex and prefrontal cortex.",
+    "functions": [
+      "Voluntary movement (primary motor cortex)",
+      "Planning and decision-making",
+      "Impulse control and personality",
+      "Expressive language (Broca's area, typically left hemisphere)"
+    ],
+    "relatedRegions": [
+      "parietal_lobe",
+      "cerebrum"
+    ],
+    "clinicalRelevance": "Frontal lobe damage is classically associated with changes in personality and impulse control — the 19th-century case of Phineas Gage is the textbook example. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "parietal_lobe": {
+    "name": "Parietal Lobe",
+    "system": "cerebrum",
+    "category": "lobe",
+    "side": null,
+    "location": "Posterior to the frontal lobe and superior to the temporal lobe.",
+    "summary": "Processes somatosensory information — touch, temperature, pain, and body position — and contributes to spatial awareness.",
+    "functions": [
+      "Touch and proprioception (primary somatosensory cortex)",
+      "Spatial awareness and navigation",
+      "Integration of sensory information",
+      "Numerical and mathematical processing"
+    ],
+    "relatedRegions": [
+      "frontal_lobe",
+      "occipital_lobe"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "temporal_lobe": {
+    "name": "Temporal Lobe",
+    "system": "cerebrum",
+    "category": "lobe",
+    "side": null,
+    "location": "Below the lateral (Sylvian) fissure, on the lower sides of the cerebrum.",
+    "summary": "Central to auditory processing, language comprehension, and memory; contains the hippocampus.",
+    "functions": [
+      "Auditory processing (primary auditory cortex)",
+      "Language comprehension (Wernicke's area, typically left hemisphere)",
+      "Memory formation",
+      "Facial and object recognition"
+    ],
+    "relatedRegions": [
+      "hippocampus_left",
+      "hippocampus_right",
+      "occipital_lobe"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "occipital_lobe": {
+    "name": "Occipital Lobe",
+    "system": "cerebrum",
+    "category": "lobe",
+    "side": null,
+    "location": "The most posterior lobe of the cerebrum, at the back of the skull.",
+    "summary": "The brain's primary visual processing center.",
+    "functions": [
+      "Visual perception (primary visual cortex)",
+      "Color and motion processing",
+      "Spatial orientation of visual scenes"
+    ],
+    "relatedRegions": [
+      "parietal_lobe",
+      "temporal_lobe"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "cerebellum": {
+    "name": "Cerebellum",
+    "system": "cerebellum",
+    "category": "surface",
+    "side": null,
+    "location": "Beneath the occipital lobe and behind the brainstem, at the back and base of the skull.",
+    "summary": "Coordinates voluntary movement, balance, and motor learning. Despite its small size, it contains most of the brain's neurons.",
+    "functions": [
+      "Motor coordination and balance",
+      "Fine-tuning of movement precision and timing",
+      "Motor learning",
+      "Contributions to some cognitive and language processing"
+    ],
+    "relatedRegions": [
+      "brainstem"
+    ],
+    "clinicalRelevance": "Cerebellar damage classically produces ataxia (uncoordinated movement) without paralysis. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "brainstem": {
+    "name": "Brainstem",
+    "system": "brainstem",
+    "category": "surface",
+    "side": null,
+    "location": "Connects the cerebrum to the spinal cord; made up of the midbrain, pons, and medulla oblongata.",
+    "summary": "Controls many of the body's automatic, life-sustaining functions and relays signals between the brain and the rest of the body.",
+    "functions": [
+      "Regulation of breathing and heart rate",
+      "Relay of motor and sensory signals",
+      "Origin of most cranial nerves",
+      "Regulation of consciousness and arousal (reticular formation)"
+    ],
+    "relatedRegions": [
+      "cerebellum",
+      "thalamus_left",
+      "thalamus_right"
+    ],
+    "clinicalRelevance": "Brainstem injury is uniquely life-threatening because it houses the centers controlling breathing and cardiovascular function. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "corpus_callosum": {
+    "name": "Corpus Callosum",
+    "system": "limbic_system",
+    "category": "white_matter",
+    "side": null,
+    "location": "A broad band of white matter beneath the cerebral cortex, spanning the midline between the hemispheres.",
+    "summary": "The largest white matter structure in the brain; connects and allows communication between the left and right cerebral hemispheres.",
+    "functions": [
+      "Interhemispheric communication",
+      "Coordination of bilateral movement and sensation",
+      "Integration of information across hemispheres"
+    ],
+    "relatedRegions": [
+      "cerebrum"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "hypothalamus": {
+    "name": "Hypothalamus",
+    "system": "limbic_system",
+    "category": "subcortical",
+    "side": null,
+    "location": "Below the thalamus and above the brainstem, forming the floor of the third ventricle.",
+    "summary": "A small but critical structure that links the nervous system to the endocrine system via the pituitary gland.",
+    "functions": [
+      "Regulation of body temperature",
+      "Regulation of hunger and thirst",
+      "Control of the pituitary gland and hormone release",
+      "Regulation of circadian rhythms and sleep"
+    ],
+    "relatedRegions": [
+      "thalamus_left",
+      "thalamus_right",
+      "brainstem"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "third_ventricle": {
+    "name": "Third Ventricle",
+    "system": "ventricular_system",
+    "category": "ventricle",
+    "side": null,
+    "location": "A narrow, midline cavity between the two halves of the thalamus.",
+    "summary": "One of the brain's four interconnected ventricles; part of the system that produces and circulates cerebrospinal fluid (CSF).",
+    "functions": [
+      "CSF production and circulation",
+      "Cushioning of surrounding neural tissue"
+    ],
+    "relatedRegions": [],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "fourth_ventricle": {
+    "name": "Fourth Ventricle",
+    "system": "ventricular_system",
+    "category": "ventricle",
+    "side": null,
+    "location": "Located between the brainstem (pons and medulla) and the cerebellum.",
+    "summary": "The most inferior of the brain's ventricles; connects to the central canal of the spinal cord.",
+    "functions": [
+      "CSF circulation",
+      "Connects the ventricular system to the spinal cord's central canal"
+    ],
+    "relatedRegions": [],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "thalamus_left": {
+    "name": "Left Thalamus",
+    "system": "diencephalon",
+    "category": "subcortical",
+    "side": "left",
+    "location": "A paired, egg-shaped structure deep in the brain, just above the brainstem.",
+    "summary": "The brain's primary sensory relay station; nearly all sensory information (except smell) passes through the thalamus before reaching the cortex.",
+    "functions": [
+      "Relay of sensory information to the cortex",
+      "Regulation of consciousness and alertness",
+      "Relay of motor signals",
+      "Involvement in sleep regulation"
+    ],
+    "relatedRegions": [
+      "hypothalamus",
+      "cerebrum",
+      "brainstem"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "thalamus_right": {
+    "name": "Right Thalamus",
+    "system": "diencephalon",
+    "category": "subcortical",
+    "side": "right",
+    "location": "A paired, egg-shaped structure deep in the brain, just above the brainstem.",
+    "summary": "The brain's primary sensory relay station; nearly all sensory information (except smell) passes through the thalamus before reaching the cortex.",
+    "functions": [
+      "Relay of sensory information to the cortex",
+      "Regulation of consciousness and alertness",
+      "Relay of motor signals",
+      "Involvement in sleep regulation"
+    ],
+    "relatedRegions": [
+      "hypothalamus",
+      "cerebrum",
+      "brainstem"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "hippocampus_left": {
+    "name": "Left Hippocampus",
+    "system": "limbic_system",
+    "category": "subcortical",
+    "side": "left",
+    "location": "A curled structure deep within the temporal lobe, part of the limbic system.",
+    "summary": "Essential for forming new long-term memories and for spatial navigation.",
+    "functions": [
+      "Formation of new declarative (fact/event) memories",
+      "Spatial memory and navigation",
+      "Consolidation of memories from short-term to long-term storage"
+    ],
+    "relatedRegions": [
+      "amygdala_left",
+      "thalamus_left",
+      "temporal_lobe"
+    ],
+    "clinicalRelevance": "The hippocampus is among the first regions affected in Alzheimer's disease, which is part of why early memory loss is a hallmark symptom. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "hippocampus_right": {
+    "name": "Right Hippocampus",
+    "system": "limbic_system",
+    "category": "subcortical",
+    "side": "right",
+    "location": "A curled structure deep within the temporal lobe, part of the limbic system.",
+    "summary": "Essential for forming new long-term memories and for spatial navigation.",
+    "functions": [
+      "Formation of new declarative (fact/event) memories",
+      "Spatial memory and navigation",
+      "Consolidation of memories from short-term to long-term storage"
+    ],
+    "relatedRegions": [
+      "amygdala_right",
+      "thalamus_right",
+      "temporal_lobe"
+    ],
+    "clinicalRelevance": "The hippocampus is among the first regions affected in Alzheimer's disease, which is part of why early memory loss is a hallmark symptom. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "amygdala_left": {
+    "name": "Left Amygdala",
+    "system": "limbic_system",
+    "category": "subcortical",
+    "side": "left",
+    "location": "An almond-shaped structure just anterior to the hippocampus, in the medial temporal lobe.",
+    "summary": "Central to processing emotions, particularly fear and threat detection.",
+    "functions": [
+      "Emotional processing, especially fear and threat response",
+      "Fear conditioning and learning",
+      "Modulation of memory consolidation for emotionally significant events",
+      "Social and emotional decision-making"
+    ],
+    "relatedRegions": [
+      "hippocampus_left",
+      "hypothalamus",
+      "temporal_lobe"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "amygdala_right": {
+    "name": "Right Amygdala",
+    "system": "limbic_system",
+    "category": "subcortical",
+    "side": "right",
+    "location": "An almond-shaped structure just anterior to the hippocampus, in the medial temporal lobe.",
+    "summary": "Central to processing emotions, particularly fear and threat detection.",
+    "functions": [
+      "Emotional processing, especially fear and threat response",
+      "Fear conditioning and learning",
+      "Modulation of memory consolidation for emotionally significant events",
+      "Social and emotional decision-making"
+    ],
+    "relatedRegions": [
+      "hippocampus_right",
+      "hypothalamus",
+      "temporal_lobe"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "caudate_nucleus_left": {
+    "name": "Left Caudate Nucleus",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "left",
+    "location": "A C-shaped structure deep within the cerebrum, part of the basal ganglia.",
+    "summary": "Involved in voluntary movement regulation and several cognitive processes, working together with the putamen as the striatum.",
+    "functions": [
+      "Regulation of voluntary movement",
+      "Procedural and habit learning",
+      "Contributions to goal-directed behavior"
+    ],
+    "relatedRegions": [
+      "putamen_left",
+      "globus_pallidus_left",
+      "thalamus_left"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "caudate_nucleus_right": {
+    "name": "Right Caudate Nucleus",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "right",
+    "location": "A C-shaped structure deep within the cerebrum, part of the basal ganglia.",
+    "summary": "Involved in voluntary movement regulation and several cognitive processes, working together with the putamen as the striatum.",
+    "functions": [
+      "Regulation of voluntary movement",
+      "Procedural and habit learning",
+      "Contributions to goal-directed behavior"
+    ],
+    "relatedRegions": [
+      "putamen_right",
+      "globus_pallidus_right",
+      "thalamus_right"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "putamen_left": {
+    "name": "Left Putamen",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "left",
+    "location": "Part of the basal ganglia, lateral to the globus pallidus.",
+    "summary": "Works together with the caudate nucleus (forming the striatum) to regulate movement.",
+    "functions": [
+      "Regulation and control of movement",
+      "Motor learning",
+      "Some contribution to reinforcement and reward processing"
+    ],
+    "relatedRegions": [
+      "caudate_nucleus_left",
+      "globus_pallidus_left"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "putamen_right": {
+    "name": "Right Putamen",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "right",
+    "location": "Part of the basal ganglia, lateral to the globus pallidus.",
+    "summary": "Works together with the caudate nucleus (forming the striatum) to regulate movement.",
+    "functions": [
+      "Regulation and control of movement",
+      "Motor learning",
+      "Some contribution to reinforcement and reward processing"
+    ],
+    "relatedRegions": [
+      "caudate_nucleus_right",
+      "globus_pallidus_right"
+    ],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "globus_pallidus_left": {
+    "name": "Left Globus Pallidus",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "left",
+    "location": "Deep within the cerebrum, medial to the putamen, part of the basal ganglia.",
+    "summary": "A key output structure of the basal ganglia motor circuit.",
+    "functions": [
+      "Regulation of voluntary movement",
+      "Inhibitory control of motor output",
+      "Part of the basal ganglia-thalamocortical motor loop"
+    ],
+    "relatedRegions": [
+      "putamen_left",
+      "caudate_nucleus_left",
+      "thalamus_left"
+    ],
+    "clinicalRelevance": "Dysfunction in this basal ganglia circuit is central to movement disorders such as Parkinson's disease. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "globus_pallidus_right": {
+    "name": "Right Globus Pallidus",
+    "system": "basal_ganglia",
+    "category": "subcortical",
+    "side": "right",
+    "location": "Deep within the cerebrum, medial to the putamen, part of the basal ganglia.",
+    "summary": "A key output structure of the basal ganglia motor circuit.",
+    "functions": [
+      "Regulation of voluntary movement",
+      "Inhibitory control of motor output",
+      "Part of the basal ganglia-thalamocortical motor loop"
+    ],
+    "relatedRegions": [
+      "putamen_right",
+      "caudate_nucleus_right",
+      "thalamus_right"
+    ],
+    "clinicalRelevance": "Dysfunction in this basal ganglia circuit is central to movement disorders such as Parkinson's disease. Educational note, not a diagnostic claim.",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "lateral_ventricle_left": {
+    "name": "Left Lateral Ventricle",
+    "system": "ventricular_system",
+    "category": "ventricle",
+    "side": "left",
+    "location": "The largest of the brain's ventricles, one within each cerebral hemisphere.",
+    "summary": "C-shaped cavities that produce and circulate cerebrospinal fluid (CSF).",
+    "functions": [
+      "CSF production via the choroid plexus",
+      "Cushioning and protection of brain tissue",
+      "Part of the connected ventricular system"
+    ],
+    "relatedRegions": [],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  },
+  "lateral_ventricle_right": {
+    "name": "Right Lateral Ventricle",
+    "system": "ventricular_system",
+    "category": "ventricle",
+    "side": "right",
+    "location": "The largest of the brain's ventricles, one within each cerebral hemisphere.",
+    "summary": "C-shaped cavities that produce and circulate cerebrospinal fluid (CSF).",
+    "functions": [
+      "CSF production via the choroid plexus",
+      "Cushioning and protection of brain tissue",
+      "Part of the connected ventricular system"
+    ],
+    "relatedRegions": [],
+    "clinicalRelevance": "",
+    "referenceIds": [],
+    "version": "1.0",
+    "reviewStatus": "DRAFT"
+  }
+}

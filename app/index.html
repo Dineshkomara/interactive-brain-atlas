@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Brain Atlas</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/viewer.css" />
+    <link rel="stylesheet" href="/styles/panels.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="toolbar">
+        <span id="app-title">Brain Atlas</span>
+        <div id="structure-search-container"></div>
+        <div id="toolbar-actions"></div>
+      </header>
+      <div id="main-layout">
+        <main id="viewer-container">
+          <div id="loading-indicator">Loading brain model&hellip;</div>
+          <div id="fps-counter"></div>
+          <div id="viewer-hint">Click a structure to explore it</div>
+          <button id="credits-toggle" type="button" aria-label="About and credits">&#9432; About</button>
+          <div id="walkthrough-container"></div>
+        </main>
+        <aside id="region-panel"></aside>
+        <div id="quiz-container"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
