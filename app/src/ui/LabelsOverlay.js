@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
-const SILHOUETTE_MARGIN = 26;
+const COLUMN_MARGIN = 24;
 const EDGE_MARGIN = 8;
 const SMOOTHING = 0.25;
 const SEPARATION_ITERATIONS = 4;
@@ -13,25 +13,29 @@ function cssColor(hex) {
 }
 
 /**
- * Permanent on-model labels (Section 25): each tagged region gets a
- * clickable, color-coded tag that rotates/moves with the model, connected
- * by a straight leader line back to its exact 3D position — but the tag
- * itself is kept in the empty space around the brain's silhouette rather
- * than sitting on top of the model. A fixed pixel offset from the anchor
- * isn't enough for that: a structure anchored near the middle of the
- * screen would still land its label on the visible surface. Instead each
- * label is pushed out along the direction from the brain's own projected
- * center through its anchor, until it clears the brain's estimated
- * on-screen radius (recomputed every frame from the live camera, via
- * setSceneScale) — so the label always ends up past the outline, however
- * deep the actual structure is, while the leader line still runs from the
- * true anchor point out to it.
+ * Permanent on-model labels: each tagged region gets a clickable,
+ * color-coded tag connected by a straight leader line back to its exact 3D
+ * position — but the tag itself stays docked to the left or right edge of
+ * the viewport, never on top of the model. An earlier version pushed each
+ * label radially outward from the model's projected center until it
+ * cleared an estimated on-screen radius; that reads fine for a roughly
+ * round object like the brain, but breaks down for a tall, narrow model
+ * like a full skeleton — a radius sized to the model's width is far too
+ * small vertically, so head/foot labels landed back on the body.
+ *
+ * Docking to a fixed screen-edge column is shape-agnostic: whichever side of
+ * the model an anchor projects to, its label slides to that edge and stays
+ * there. The left/right split itself is decided from the *tagged anchors'*
+ * own on-screen spread (the midpoint of their min/max projected X) each
+ * frame, rather than the model's full bounding-box center — a couple of
+ * small, off-axis structures (e.g. ear ossicles sitting beside the skull)
+ * can pull that geometric center well off the body's visual midline, which
+ * would otherwise route every label to the same side.
  *
  * A pairwise separation pass then nudges apart any labels that still
- * overlap each other — several regions (thalamus, hippocampus, amygdala,
- * the basal ganglia, the ventricles) sit close together near the brain's
- * center, so without this they'd stack on top of each other even once
- * they're all outside the silhouette.
+ * overlap each other — within either column, several regions can end up at
+ * a similar screen height, so without this they'd stack on top of each
+ * other.
  *
  * Every label/line pair is tinted with that region's accent color (from the
  * injected RegionColorScheme) so it's obvious which line belongs to which
@@ -62,8 +66,6 @@ export class LabelsOverlay {
     this.onHoverEnd = onHoverEnd || (() => {});
     this.visible = false;
     this.entries = [];
-    this.sceneCenter = null;
-    this.sceneRadius = null;
 
     this.svg = document.createElementNS(SVG_NS, "svg");
     this.svg.setAttribute("class", "label-lines");
@@ -118,13 +120,6 @@ export class LabelsOverlay {
     }
   }
 
-  /** Call once after the model loads (and its scale is known) so labels
-   * know how big the brain's silhouette is on screen. */
-  setSceneScale(center, radius) {
-    this.sceneCenter = center.clone();
-    this.sceneRadius = radius;
-  }
-
   /** Finds the largest single mesh in `object3D`'s subtree (by bounding-box
    * volume) and returns its world-space center — see class doc for why. */
   _anchorPoint(object3D, scratchBox) {
@@ -168,30 +163,10 @@ export class LabelsOverlay {
     const rect = this.container.getBoundingClientRect();
     this.svg.setAttribute("width", rect.width);
     this.svg.setAttribute("height", rect.height);
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
     const projected = new THREE.Vector3();
     const visible = [];
-
-    // Estimate the brain's on-screen silhouette: project its center, and a
-    // point one scene-radius away along the camera's own right axis, then
-    // measure the resulting pixel distance. Recomputed every frame so it
-    // tracks zoom/distance changes automatically.
-    let brainCX = cx;
-    let brainCY = cy;
-    let brainScreenRadius = 0;
-    if (this.sceneCenter) {
-      projected.copy(this.sceneCenter).project(camera);
-      brainCX = (projected.x * 0.5 + 0.5) * rect.width;
-      brainCY = (-projected.y * 0.5 + 0.5) * rect.height;
-
-      const right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
-      const edgeWorld = this.sceneCenter.clone().addScaledVector(right, this.sceneRadius);
-      projected.copy(edgeWorld).project(camera);
-      const edgeX = (projected.x * 0.5 + 0.5) * rect.width;
-      const edgeY = (-projected.y * 0.5 + 0.5) * rect.height;
-      brainScreenRadius = Math.hypot(edgeX - brainCX, edgeY - brainCY);
-    }
+    let minAnchorX = Infinity;
+    let maxAnchorX = -Infinity;
 
     for (const entry of this.entries) {
       projected.copy(entry.worldCenter).project(camera);
@@ -202,25 +177,26 @@ export class LabelsOverlay {
       }
       entry.anchorX = (projected.x * 0.5 + 0.5) * rect.width;
       entry.anchorY = (-projected.y * 0.5 + 0.5) * rect.height;
-
-      let dirX = entry.anchorX - brainCX;
-      let dirY = entry.anchorY - brainCY;
-      const len = Math.hypot(dirX, dirY) || 1;
-      dirX /= len;
-      dirY /= len;
-      if (len < 1) {
-        dirX = 0.6;
-        dirY = -0.8;
-      }
-
-      const reach = brainScreenRadius + SILHOUETTE_MARGIN;
-      entry.targetX = brainCX + dirX * reach;
-      entry.targetY = brainCY + dirY * reach;
+      minAnchorX = Math.min(minAnchorX, entry.anchorX);
+      maxAnchorX = Math.max(maxAnchorX, entry.anchorX);
 
       entry.el.style.display = "flex";
       if (entry.el.offsetWidth) entry.halfWidth = entry.el.offsetWidth / 2 + LABEL_GAP;
 
       visible.push(entry);
+    }
+
+    // Split left/right by the midpoint of the tagged anchors' own on-screen
+    // spread, not the model's full bounding-box center — a few small,
+    // off-axis structures (e.g. ear ossicles sitting beside the skull) can
+    // pull the geometric center away from the body's visual midline, which
+    // would otherwise route every label to one side.
+    const modelCX = visible.length ? (minAnchorX + maxAnchorX) / 2 : rect.width / 2;
+
+    for (const entry of visible) {
+      const onLeft = entry.anchorX < modelCX;
+      entry.targetX = onLeft ? COLUMN_MARGIN + entry.halfWidth : rect.width - COLUMN_MARGIN - entry.halfWidth;
+      entry.targetY = entry.anchorY;
     }
 
     this._separate(visible);

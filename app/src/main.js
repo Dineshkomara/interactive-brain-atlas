@@ -261,7 +261,6 @@ async function mountSystem(systemId) {
       onHoverStart: (regionId) => previewRegion(regionId),
       onHoverEnd: () => clearPreview(),
     });
-    labelsOverlay.setSceneScale(cameraController.sceneCenter, cameraController.sceneDiameter / 2);
 
     regionPicker = new RegionPicker(viewer.camera, viewer.renderer.domElement, root, {
       onSelect: (regionId) => {
