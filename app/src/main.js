@@ -33,7 +33,10 @@ async function loadSystemData(systemId) {
     quizzesLoaders[`${base}/quizzes.json`](),
   ]);
   return {
-    modelPath: systemsCatalog[systemId].glb,
+    // Model paths in systems.json are domain-root-absolute ("/models/...");
+    // prefix with Vite's configured base so they still resolve when the app
+    // is deployed under a subpath (e.g. GitHub Pages project sites).
+    modelPath: import.meta.env.BASE_URL + systemsCatalog[systemId].glb.replace(/^\//, ""),
     regions: regionsModule.default,
     lessons: lessonsModule.default,
     quizzes: quizzesModule.default,
