@@ -247,7 +247,11 @@ async function mountSystem(systemId) {
   try {
     const { root, regionIndex: index } = await loadBrain(system.modelPath, (event) => {
       if (event.lengthComputable) {
-        const pct = Math.round((event.loaded / event.total) * 100);
+        // event.total reflects the compressed transfer size on hosts that
+        // gzip the response (e.g. GitHub Pages); event.loaded is measured
+        // post-decompression, so it can briefly exceed total — clamp so the
+        // indicator never reads past 100%.
+        const pct = Math.min(100, Math.round((event.loaded / event.total) * 100));
         loadingIndicator.textContent = `Loading ${systemsCatalog[systemId].name.toLowerCase()} model… ${pct}%`;
       }
     });
