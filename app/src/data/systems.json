@@ -1,6 +1,6 @@
 {
   "nervous": { "name": "Nervous System", "glb": "/models/nervous.glb", "status": "available" },
-  "skeletal": { "name": "Skeletal System", "glb": "/models/skeletal.glb", "status": "coming_soon" },
+  "skeletal": { "name": "Skeletal System", "glb": "/models/skeletal.glb", "status": "available" },
   "muscular": { "name": "Muscular System", "glb": "/models/muscular.glb", "status": "coming_soon" },
   "cardiovascular": { "name": "Cardiovascular System", "glb": "/models/cardiovascular.glb", "status": "coming_soon" },
   "respiratory": { "name": "Respiratory System", "glb": "/models/respiratory.glb", "status": "coming_soon" },

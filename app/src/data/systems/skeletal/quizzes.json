@@ -1,0 +1,81 @@
+[
+  {
+    "title": "Assignment: Skeleton Basics",
+    "questions": [
+      {
+        "id": 1,
+        "type": "identify",
+        "prompt": "Click the Skull.",
+        "answer": "skull",
+        "points": 1
+      },
+      {
+        "id": 2,
+        "type": "multipleChoice",
+        "prompt": "Which bone is the only movable bone of the skull?",
+        "options": [
+          { "label": "Mandible", "correct": true },
+          { "label": "Frontal bone", "correct": false },
+          { "label": "Sphenoid bone", "correct": false },
+          { "label": "Temporal bone", "correct": false }
+        ],
+        "explanation": "Every other skull bone is fused at rigid sutures. The mandible hinges at a joint near each ear, letting the jaw open and close.",
+        "points": 1
+      },
+      {
+        "id": 3,
+        "type": "identify",
+        "prompt": "Click the Left Femur.",
+        "answer": "femur_left",
+        "points": 1
+      },
+      {
+        "id": 4,
+        "type": "identify",
+        "prompt": "Click the Sternum.",
+        "answer": "sternum",
+        "points": 1
+      },
+      {
+        "id": 5,
+        "type": "multipleChoice",
+        "prompt": "Which structure carries almost all of the body's weight below the knee?",
+        "options": [
+          { "label": "Tibia", "correct": true },
+          { "label": "Fibula", "correct": false },
+          { "label": "Patella", "correct": false },
+          { "label": "Talus", "correct": false }
+        ],
+        "explanation": "The tibia (shin bone) is the primary weight-bearing bone of the lower leg. The thinner fibula alongside it mainly stabilizes the ankle.",
+        "points": 1
+      },
+      {
+        "id": 6,
+        "type": "identify",
+        "prompt": "Click the Left Hip Bone (Pelvis).",
+        "answer": "pelvis_left",
+        "points": 1
+      },
+      {
+        "id": 7,
+        "type": "identify",
+        "prompt": "Click the Ribs.",
+        "answer": "ribs",
+        "points": 1
+      },
+      {
+        "id": 8,
+        "type": "multipleChoice",
+        "prompt": "How many bones does the adult human skeleton have?",
+        "options": [
+          { "label": "206", "correct": true },
+          { "label": "146", "correct": false },
+          { "label": "270", "correct": false },
+          { "label": "326", "correct": false }
+        ],
+        "explanation": "Babies are born with about 270 bones, many of which fuse together during growth, leaving 206 in the adult skeleton.",
+        "points": 1
+      }
+    ]
+  }
+]

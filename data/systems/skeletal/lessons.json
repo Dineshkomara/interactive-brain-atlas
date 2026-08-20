@@ -1,0 +1,77 @@
+[
+  {
+    "title": "Explore the Skeleton",
+    "steps": [
+      {
+        "regionId": "skeleton",
+        "title": "1 · The Skeleton",
+        "body": "206 bones make up the adult skeleton. It's split into two groups: the axial skeleton (skull, spine, ribs, sternum) running down the body's centerline, and the appendicular skeleton — the arms, legs, and the girdles that attach them."
+      },
+      {
+        "regionId": "skull",
+        "title": "2 · Skull — protecting the brain",
+        "body": "Many separate bones (frontal, parietal, temporal, occipital, and more) fuse together at rigid joints called sutures to form a single protective case around the brain."
+      },
+      {
+        "regionId": "mandible",
+        "title": "3 · Mandible — the only moving skull bone",
+        "body": "Every other skull bone is fused in place. The mandible is the exception — it hinges at a joint in front of each ear, letting you open, close, and grind your jaw."
+      },
+      {
+        "regionId": "cervical_vertebrae",
+        "title": "4 · Cervical Vertebrae — the neck",
+        "body": "Seven small vertebrae (C1–C7) support the skull. The top two are specially shaped to let your head nod (C1, the atlas) and rotate (C2, the axis)."
+      },
+      {
+        "regionId": "thoracic_vertebrae",
+        "title": "5 · Thoracic Vertebrae — anchoring the ribs",
+        "body": "Twelve vertebrae (T1–T12), each with a facet where a pair of ribs attaches. This is what turns the spine and ribs into one connected cage."
+      },
+      {
+        "regionId": "ribs",
+        "title": "6 · Ribs — the protective cage",
+        "body": "Twelve pairs curve from the spine around to the front of the chest, shielding the heart and lungs while still flexing outward with every breath."
+      },
+      {
+        "regionId": "sternum",
+        "title": "7 · Sternum — closing the cage",
+        "body": "The breastbone, in the center of the chest. Most ribs attach here via cartilage, completing the rib cage's protective enclosure."
+      },
+      {
+        "regionId": "lumbar_vertebrae",
+        "title": "8 · Lumbar Vertebrae — the lower back",
+        "body": "Five large, sturdy vertebrae (L1–L5) built to bear most of your upper body's weight — and the most common site of lower-back strain."
+      },
+      {
+        "regionId": "pelvis_left",
+        "title": "9 · Hip Bone — spine meets legs",
+        "body": "The sacrum wedges between the two hip bones to form the pelvis, transferring your body's weight from the spine down into the legs."
+      },
+      {
+        "regionId": "femur_left",
+        "title": "10 · Femur — the body's longest bone",
+        "body": "The thigh bone. Its rounded head fits into the hip socket, and its lower end forms the knee — a single bone doing the work of an entire leg's main support."
+      },
+      {
+        "regionId": "tibia_left",
+        "title": "11 · Tibia — carrying your weight",
+        "body": "The shin bone carries nearly all your weight below the knee. Its thinner neighbor, the fibula, mostly just stabilizes the ankle."
+      },
+      {
+        "regionId": "humerus_left",
+        "title": "12 · Humerus — the upper arm",
+        "body": "The single bone of the upper arm. Its rounded head sits in the scapula's shallow socket — a loose fit that trades stability for the shoulder's huge range of motion."
+      },
+      {
+        "regionId": "hand_bones",
+        "title": "13 · Bones of the Hand",
+        "body": "27 small bones in each hand — 8 carpals in the wrist, 5 metacarpals in the palm, and 14 phalanges in the fingers — giving your hand the fine control no other body part has."
+      },
+      {
+        "regionId": "foot_bones",
+        "title": "14 · Bones of the Foot",
+        "body": "26 bones per foot, arranged into arches that absorb the shock of every step — including the calcaneus, your heel bone, and the talus, which forms the ankle joint."
+      }
+    ]
+  }
+]
